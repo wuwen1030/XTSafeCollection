@@ -59,3 +59,5 @@
 
 ###安装
 `pod ~> XTSafeCollection`
+###TODO
+兼容更多的crash情况
