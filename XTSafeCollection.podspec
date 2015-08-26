@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "XTSafeCollection"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "An elegant solution to common crashes of NSArray, NSMutableArray and NSMutableDictionary."
 
   s.description  = <<-DESC
@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
                    versions:
                    1.0.0
                    1.0.1 
+                   1.0.2
 
                    DESC
 
@@ -30,8 +31,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT" }
   s.author       = { "xiabin" => "xiabin@tuniu.com" }
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/wuwen1030/XTSafeCollection.git", :tag => "1.0.1" }
+  s.source       = { :git => "https://github.com/wuwen1030/XTSafeCollection.git", :tag => "1.0.2" }
   s.source_files  = "XTSafeCollection/XTSafeCollection/*.{h,m}"
   s.requires_arc = true
-
 end
