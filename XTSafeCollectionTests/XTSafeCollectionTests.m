@@ -15,26 +15,34 @@
 
 @implementation XTSafeCollectionTests
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+- (void)testArrayInit
+{
+    NSNumber *aNil = nil;
+    NSArray *array1 = @[@1, @2, aNil, @4];
+    NSArray *array2 = @[@1, @2, @4];
+    XCTAssertEqualObjects(array1, array2);
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+- (void)testArrayObjectAtIndex
+{
+    NSArray *array = @[@1,@2];
+    XCTAssert(array[0]);
+    XCTAssertNil(array[array.count]);
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void)testMutableArrayObjectAtIndex
+{
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:@1, @2,nil];
+    XCTAssert(array[0]);
+    XCTAssertNil(array[array.count]);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testMutableArrayAddObject
+{
+    NSMutableArray *array1 = [NSMutableArray arrayWithObjects:@1, @2,nil];
+    [array1 addObject:nil];
+    NSMutableArray *array2 = [NSMutableArray arrayWithArray:array1];
+    XCTAssertEqualObjects(array1, array2);
 }
 
 @end
