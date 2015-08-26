@@ -7,7 +7,6 @@
 //
 
 #import "XTSafeCollection.h"
-
 #import <objc/runtime.h>
 
 #define XT_SC_LOG 1
@@ -44,6 +43,30 @@
     }
     
     return [self tn_objectAtIndexI:index];
+}
+
++ (id)tn_arrayWithObjects:(const id [])objects count:(NSUInteger)cnt
+{
+    id validObjects[cnt];
+    NSUInteger count = 0;
+    for (NSUInteger i = 0; i < cnt; i++)
+    {
+        if (objects[i])
+        {
+            validObjects[count] = objects[i];
+            count++;
+        }
+        else
+        {
+            XTSCLOG(@"[%@ %@] NIL object at index {%lu}",
+                    NSStringFromClass([self class]),
+                    NSStringFromSelector(_cmd),
+                    (unsigned long)i);
+            
+        }
+    }
+    
+    return [self tn_arrayWithObjects:validObjects count:count];
 }
 
 @end
@@ -130,6 +153,41 @@
 
 @end
 
+#pragma mark - NSDictionary
+
+@interface NSDictionary (XTSafe)
+
+@end
+
+@implementation NSDictionary (XTSafe)
+
++ (instancetype)tn_dictionaryWithObjects:(const id [])objects forKeys:(const id<NSCopying> [])keys count:(NSUInteger)cnt
+{
+    id validObjects[cnt];
+    id<NSCopying> validKeys[cnt];
+    NSUInteger count = 0;
+    for (NSUInteger i = 0; i < cnt; i++)
+    {
+        if (objects[i] && keys[i])
+        {
+            validObjects[count] = objects[i];
+            validKeys[count] = keys[i];
+            count ++;
+        }
+        else
+        {
+            XTSCLOG(@"[%@ %@] NIL object or key at index{%lu}.",
+                    NSStringFromClass(self),
+                    NSStringFromSelector(_cmd),
+                    (unsigned long)i);
+        }
+    }
+    
+    return [self tn_dictionaryWithObjects:validObjects forKeys:validKeys count:count];
+}
+
+@end
+
 #pragma mark - NSMutableDictionary
 
 @interface NSMutableDictionary (XTSafe)
@@ -171,11 +229,16 @@
     dispatch_once(&onceToken, ^{
         // NSArray
         [self exchangeOriginalMethod:[NSArray methodOfSelector:@selector(objectAtIndex:)] withNewMethod:[NSArray methodOfSelector:@selector(tn_objectAtIndexI:)]];
+        [self exchangeOriginalMethod:class_getClassMethod([NSArray class], @selector(arrayWithObjects:count:))
+                       withNewMethod:class_getClassMethod([NSArray class], @selector(tn_arrayWithObjects:count:))];
         // NSMutableArray
         [self exchangeOriginalMethod:[NSMutableArray methodOfSelector:@selector(objectAtIndex:)] withNewMethod:[NSMutableArray methodOfSelector:@selector(tn_objectAtIndexM:)]];
         [self exchangeOriginalMethod:[NSMutableArray methodOfSelector:@selector(replaceObjectAtIndex:withObject:)] withNewMethod:[NSMutableArray methodOfSelector:@selector(tn_replaceObjectAtIndex:withObject:)]];
         [self exchangeOriginalMethod:[NSMutableArray methodOfSelector:@selector(addObject:)] withNewMethod:[NSMutableArray methodOfSelector:@selector(tn_addObject:)]];
         [self exchangeOriginalMethod:[NSMutableArray methodOfSelector:@selector(insertObject:atIndex:)] withNewMethod:[NSMutableArray methodOfSelector:@selector(tn_insertObject:atIndex:)]];
+        // NSDictionary
+        [self exchangeOriginalMethod:class_getClassMethod([NSDictionary class], @selector(dictionaryWithObjects:forKeys:count:))
+                       withNewMethod:class_getClassMethod([NSDictionary class], @selector(tn_dictionaryWithObjects:forKeys:count:))];
         // NSMutableDictionary
         [self exchangeOriginalMethod:[NSMutableDictionary methodOfSelector:@selector(setObject:forKey:)] withNewMethod:[NSMutableDictionary methodOfSelector:@selector(tn_setObject:forKey:)]];
     });
