@@ -91,7 +91,7 @@ NSDictionary:
 ```
 
 ###安装
-`pod ~> XTSafeCollection`
+`pod XTSafeCollection`
 
 ###TODO
 兼容更多的crash情况
