@@ -14,7 +14,7 @@
 		B5B74DC51B8C5EF600AE01C9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5B74DC41B8C5EF600AE01C9 /* Images.xcassets */; };
 		B5B74DC81B8C5EF600AE01C9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5B74DC61B8C5EF600AE01C9 /* LaunchScreen.xib */; };
 		B5B74DD41B8C5EF600AE01C9 /* XTSafeCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B74DD31B8C5EF600AE01C9 /* XTSafeCollectionTests.m */; };
-		B5B74DE01B8C5F3200AE01C9 /* XTSafeCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B74DDF1B8C5F3200AE01C9 /* XTSafeCollection.m */; };
+		B5B74DE01B8C5F3200AE01C9 /* XTSafeCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B74DDF1B8C5F3200AE01C9 /* XTSafeCollection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -430,6 +430,7 @@
 				B5B74DD91B8C5EF600AE01C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5B74DDA1B8C5EF600AE01C9 /* Build configuration list for PBXNativeTarget "XTSafeCollectionTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +439,7 @@
 				B5B74DDC1B8C5EF600AE01C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
