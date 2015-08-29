@@ -102,4 +102,4 @@ NSDictionary:
 *** -[UIKeyboardLayoutStar release]: message sent to deallocated instance 0x7f883beac9c0
 ```
 在这里
-(http://huang.sh/2015/02/%E4%B8%80%E4%B8%AA%E5%A5%87%E6%80%AA%E7%9A%84crash-uikeyboardlayoutstar-release/)[http://huang.sh/2015/02/%E4%B8%80%E4%B8%AA%E5%A5%87%E6%80%AA%E7%9A%84crash-uikeyboardlayoutstar-release/]找到了解决方法
+[http://huang.sh/2015/02/%E4%B8%80%E4%B8%AA%E5%A5%87%E6%80%AA%E7%9A%84crash-uikeyboardlayoutstar-release/](http://huang.sh/2015/02/%E4%B8%80%E4%B8%AA%E5%A5%87%E6%80%AA%E7%9A%84crash-uikeyboardlayoutstar-release/)找到了解决方法
