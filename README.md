@@ -103,3 +103,4 @@ NSDictionary:
 ```
 在这里
 [http://huang.sh/2015/02/%E4%B8%80%E4%B8%AA%E5%A5%87%E6%80%AA%E7%9A%84crash-uikeyboardlayoutstar-release/](http://huang.sh/2015/02/%E4%B8%80%E4%B8%AA%E5%A5%87%E6%80%AA%E7%9A%84crash-uikeyboardlayoutstar-release/)找到了解决方法
+![issue image](http://i3.tietuku.com/77deed8f74fa1ec2.jpg)
