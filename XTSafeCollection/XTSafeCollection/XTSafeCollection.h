@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#if __has_feature(objc_arc)
+#error "Should disable arc (-fno-objc-arc)"
+#endif
+
 @interface XTSafeCollection : NSObject
 
 @end
