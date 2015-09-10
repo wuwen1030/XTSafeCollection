@@ -12,10 +12,23 @@
 #define XT_SC_LOG 1
 
 #if (XT_SC_LOG)
-#define XTSCLOG(...) NSLog(__VA_ARGS__)
+#define XTSCLOG(...) safeCollectionLog(__VA_ARGS__)
 #else
 #define XTSCLOG(...)
 #endif
+
+void safeCollectionLog(NSString *fmt, ...) NS_FORMAT_FUNCTION(1, 2);
+
+void safeCollectionLog(NSString *fmt, ...)
+{
+    va_list ap;
+    va_start(ap, fmt);
+    NSString *content = [[NSString alloc] initWithFormat:fmt arguments:ap];
+    NSLog(@"%@", content);
+    va_end(ap);
+    
+    NSLog(@" ============= call stack ========== \n%@", [NSThread callStackSymbols]);
+}
 
 #pragma mark - NSArray
 
