@@ -1,5 +1,10 @@
 ##XTSafeCollection
 
+[![CI Status](http://img.shields.io/travis/xiabin/XTDemoPod.svg?style=flat)](https://travis-ci.org/wuwen1030/XTSafeCollection)
+[![Version](https://img.shields.io/cocoapods/v/XTDemoPod.svg?style=flat)](http://cocoapods.org/pods/XTSafeCollection)
+[![License](https://img.shields.io/cocoapods/l/XTDemoPod.svg?style=flat)](http://cocoapods.org/pods/XTSafeCollection)
+[![Platform](https://img.shields.io/cocoapods/p/XTDemoPod.svg?style=flat)](http://cocoapods.org/pods/XTSafeCollection)
+
 ###背景
 `NSArray``NSMutableArray``NSDictionary``NSMutableDictionary`是我们的在`iOS`开发中非常常用的类。当然，在享受这些类的便利的同时，它们也给我们带来一些困扰。粗心我们可能会调用`addObject`传入一个`nil`, 也有可能是会`objectAtIndex`传入一个越界的index。尤其是在数据基本依赖于服务端返回的的情况，这种crash大幅增加。最近项目上经常出现`NSDictionary`的`setObject:forKey:`的`nil object`的崩溃。
 ###解决方案
