@@ -1,3 +1,5 @@
 language: objective-c
 xcode_project: XTSafeCollection.xcodeproj
-xcode_scheme: XTSafeCollection
+xcode_scheme: XTSafeCollectio
+
+script: xcodebuild -project XTSafeCollection.xcodeproj -scheme XTSafeCollection -sdk iphonesimulator test
