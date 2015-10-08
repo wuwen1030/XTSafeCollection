@@ -1,1 +1,3 @@
 language: objective-c
+xcode_workspace: XTSafeCollection.xcodeproj
+xcode_scheme: XTSafeCollection
