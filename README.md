@@ -11,7 +11,7 @@
 ####函数包装
 我们希望能够用一个统一的方法解决粗心的程序员可能传入的`nil object`。我们最先想到的想法是对这些函数进行一个包装，比如`objectAtIndex`，我们写一个如下的函数
 
-```Objective-C
+```objc
 - (id)safeObjectAtIndex:(NSUInteger)index
 {	
 	if (index >= self.count)
@@ -28,7 +28,7 @@
 ###使用
 直接把`XTSafeCollection.h``XTSafeCollection.m`拖入工程，`NSArray``NSMutableArray``NSDictionary``NSMutableDictionary`这些类的API以前是怎么调用的，还怎么写，完全不用修改。Demo里，我全部以传统的会引起crash的方式调用代码，以下是我的Demo的代码和输出
 
-```
+```objc
 NSArray *array = @[@"a", @"b"];
 NSMutableArray *mutableArray = [@[@"aa", @"bb"] mutableCopy];
     
@@ -70,7 +70,7 @@ mutableDictionary[@"1"] = nil;
 
 * 1.0.0
 
-```
+```objc
 NSArray:
 - (id)objectAtIndex:(NSUInteger)index;
 
@@ -86,7 +86,7 @@ NSMutableDictionary:
 
 * 1.0.2
 
-```
+```objc
 NSArray:
 + (instancetype)arrayWithObjects:(const id [])objects count:(NSUInteger)cnt; ( @[] )
 
@@ -96,14 +96,14 @@ NSDictionary:
 ```
 
 ###安装
-`pod XTSafeCollection`
+`pod "XTSafeCollection"`
 
 ###TODO
 兼容更多的crash情况
 
 ###Known Issues
 替换`NSMuatbelArray`的`objectAtIndex:`引起键盘展示状态态切换后台的崩溃，抛出
-```
+```objc
 *** -[UIKeyboardLayoutStar release]: message sent to deallocated instance 0x7f883beac9c0
 ```
 在这里
