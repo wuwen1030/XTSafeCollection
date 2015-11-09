@@ -9,18 +9,22 @@
 #import "XTSafeCollection.h"
 #import <objc/runtime.h>
 
-#define XT_SC_LOG 1
-
-#if (XT_SC_LOG)
-#define XTSCLOG(...) safeCollectionLog(__VA_ARGS__)
-#else
-#define XTSCLOG(...)
+#if __has_feature(objc_arc)
+#error "Should disable arc (-fno-objc-arc)"
 #endif
+
+static BOOL logEnabled = NO;
+
+#define XTSCLOG(...) safeCollectionLog(__VA_ARGS__)
 
 void safeCollectionLog(NSString *fmt, ...) NS_FORMAT_FUNCTION(1, 2);
 
 void safeCollectionLog(NSString *fmt, ...)
 {
+    if (!logEnabled)
+    {
+        return;
+    }
     va_list ap;
     va_start(ap, fmt);
     NSString *content = [[NSString alloc] initWithFormat:fmt arguments:ap];
@@ -260,6 +264,11 @@ void safeCollectionLog(NSString *fmt, ...)
 + (void)exchangeOriginalMethod:(Method)originalMethod withNewMethod:(Method)newMethod
 {
     method_exchangeImplementations(originalMethod, newMethod);
+}
+
++ (void)setLogEnabled:(BOOL)enabled
+{
+    logEnabled = enabled;
 }
 
 @end

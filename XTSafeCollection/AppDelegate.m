@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "XTSafeCollection.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+#ifdef DEBUG
+    [XTSafeCollection setLogEnabled:YES];
+#endif
     return YES;
 }
 
