@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/wuwen1030/XTSafeCollection"
   s.license      = { :type => "MIT" }
-  s.author       = { "xiabin" => "xiabin@tuniu.com" }
+  s.author       = { "wuwen" => "wuwen.xb@alibaba-inc.com" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/wuwen1030/XTSafeCollection.git", :tag => "1.0.4" }
   s.source_files  = "XTSafeCollection/XTSafeCollection/*.{h,m}"
