@@ -26,20 +26,21 @@
     NSLog(@"%@", mutableArray[100]);
     
     // add object
-    [mutableArray addObject:nil];
+    NSString *nilString;
+    [mutableArray addObject:nilString];
     
     // Insert object
-    [mutableArray insertObject:nil atIndex:0];
+    [mutableArray insertObject:nilString atIndex:0];
     [mutableArray insertObject:@"cc" atIndex:10];
     
     // Replace object
-    [mutableArray replaceObjectAtIndex:0 withObject:nil];
+    [mutableArray replaceObjectAtIndex:0 withObject:nilString];
     [mutableArray replaceObjectAtIndex:10 withObject:@"cc"];
     
     // Dictionary
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionary];
-    mutableDictionary[nil] = @"1";
-    mutableDictionary[@"1"] = nil;
+    mutableDictionary[nilString] = @"1";
+    mutableDictionary[@"1"] = nilString;
 }
 
 - (void)didReceiveMemoryWarning
