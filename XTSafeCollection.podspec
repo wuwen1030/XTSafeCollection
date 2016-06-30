@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "XTSafeCollection"
-  s.version      = "1.0.4"
+  s.version      = "1.0.5"
   s.summary      = "An elegant solution to common crashes of NSArray, NSMutableArray and NSMutableDictionary."
 
   s.description  = <<-DESC
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
                    XTSafeCollection provide a way to avoid these crashes. Just add the `XTSafeCollection.h`, `XTSafeCollection.m` to you project,
                    You event don't need to modify you codes, call the methods as what they are.
 
-                   More:https://github.com/wuwen1030/XTSafeCollection.
+                   More: https://github.com/wuwen1030/XTSafeCollection.
 
                    DESC
 
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT" }
   s.author       = { "wuwen" => "wuwen.xb@alibaba-inc.com" }
   s.platform     = :ios
-  s.source       = { :git => "https://github.com/wuwen1030/XTSafeCollection.git", :tag => "1.0.4" }
+  s.source       = { :git => "https://github.com/wuwen1030/XTSafeCollection.git", :tag => "1.0.5" }
   s.source_files  = "XTSafeCollection/XTSafeCollection/*.{h,m}"
   s.requires_arc = false
 end
